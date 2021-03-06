@@ -1,0 +1,56 @@
+
+.welcomeSection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 21.9rem;
+    margin: 3.125rem auto;
+
+}
+
+.leftSide{
+    width: 40%;
+}
+
+.title{
+    font-family: 'Livvic';
+    text-decoration: underline 3px var(--green) ; 
+    margin-bottom: 2.5rem;
+    font-size: 1.9rem;
+    
+}
+
+.leftSide p{
+    margin-left: 2.5rem;
+    font-size: 1rem;
+    font-family: 'Rhodium Libre', serif;
+    text-align: justify;
+    width: 36rem;
+}
+
+.leftSide p a{
+    text-decoration: none;
+    color: var(--green);
+    transition:  0.3s;
+}
+
+.leftSide p a:hover{
+    text-decoration: underline 1px var(--green);
+}
+
+.rightSide{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photos{
+    background-color: var(--gray-details);
+    width: 550px;
+    height: 300px;
+}
+
+
+

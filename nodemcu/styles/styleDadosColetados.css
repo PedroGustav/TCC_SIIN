@@ -1,0 +1,199 @@
+
+
+.infoCalendarSection{
+    width: 90%;
+    margin: 5.125rem auto;
+    display: flex;
+    justify-content: space-between;
+}
+.leftSide{
+    width: 50%;
+}
+
+.title{
+    font-family: 'Livvic';
+    text-decoration: underline 3px var(--green) ; 
+    margin-bottom: 2.5rem;
+    font-size: 1.9rem;
+    
+}
+
+.leftSide p{
+    margin-left: 3.5rem;
+    font-size: 1rem;
+    font-family: 'Rhodium Libre', serif;
+    text-align: justify;
+    width: 30rem;
+}
+
+.rightSide{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar{
+    margin-bottom: 50px;
+    width: 33.99rem;
+    height: 23rem;
+    background-color: var(--gray-details);
+}
+
+.monthYear{
+    width: 100%;
+    height: 6.25rem;
+    background-color: var(--green);
+    display: flex;
+    justify-content: space-between;
+    padding: 1.1rem;
+}
+
+.monthYear button {
+    height: 100%;
+    font-size: 4rem;
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    display: flex;
+    align-items: center; 
+    cursor: pointer;
+     
+}
+
+.monthYear button:focus{
+    border: none;
+    outline: none;
+}
+
+.monthYear div{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.month{
+    margin-top: 0.8rem;
+    text-transform: uppercase;
+    font-family: 'Livvic';
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.year{
+    text-transform: uppercase;
+    font-family: 'Livvic';
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.daysNames{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.daysNames p{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-details);
+    font-family: 'Livvic';
+    font-weight: normal;
+    height: 1.9rem;
+}
+.days{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.days button{
+    text-align: center;
+    background-color: #E2E2E2;
+    font-family: 'Livvic';
+    font-weight: normal;
+    height: 2.964rem;
+    border: none;
+    cursor: pointer;
+    transition:  0.3s; 
+}
+
+.days button:hover{
+    filter: brightness(80%);
+}
+
+.days button:focus{
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+    outline: none;
+}
+
+.notActive{
+    pointer-events: none;
+    cursor: default;
+}
+
+.tableSection{
+    width: 90%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.table{
+    margin-top: 1.9rem;
+    height: 28rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableTitles{
+    border-bottom: 1px solid var(--green);
+    border-top: 1px solid var(--green);
+    width: 100%;
+    height: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Karma', serif;
+    font-size: 1rem;
+}
+
+.tableGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.values{
+    border-left: 1px solid #B9B3B3;
+    border-right: 1px solid #B9B3B3;
+    height: 2.9rem;
+    transition: 0.1s;
+    font-family: 'Livvic';
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.line1{
+    background-color: var(--gray-table-row);
+}
+
+.line2{
+    background-color: var(--gray-details);
+}
