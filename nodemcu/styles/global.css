@@ -7,8 +7,6 @@
 html{
     font-size: 16px;
 }
-
-
 :root{
     --green: #16a085;
     --gray-background: #F8F8F8;
@@ -246,7 +244,6 @@ footer{
 
 .table{
     margin-top: 1.9rem;
-    height: 28rem;
     width: 100%;
     margin: 0 auto;
     display: flex;

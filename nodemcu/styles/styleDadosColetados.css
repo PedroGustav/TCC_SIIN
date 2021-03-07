@@ -27,9 +27,130 @@
 }
 
 .rightSide{
-    width: 50%;
+    width: 33.99rem;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+}
+
+.submitSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#DateText{
+    
+    font-family: 'Karma', serif;
+    font-weight: 200;
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--green);
+    height: 2.4rem;
+    
+}
+.rightSide form{
+    flex-direction: column;    
+    align-items: flex-end;
+    flex: 1;
+    display: flex;
+    margin-top: 0.4rem;
+}
+
+
+
+
+    
+    
+.dateInputs{
+    margin-bottom: 0.5rem;
+    display: flex;
+    width: 6rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0.1rem;
+    border-bottom: 1px solid var(--green);
+    
+}
+
+.dateInputs input{
+
+    height: 1rem;
+    background: none;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: flex-end;  
+    justify-content: flex-end;
+    text-align: end;
+    border: none;
+
+}
+
+.dateInputs input:focus{
+    border: none;
+    outline: none;
+}
+
+
+#day{
+    width: 1.4rem;
+
+}
+
+#month{
+    width: 1.2rem;
+    text-align: center;
+}
+
+#year{
+    width: 2.3rem;
+}
+
+.dateInputs p {
+    font-family: 'Roboto';
+    font-weight: 400;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 0.3rem;
+    height: 2rem;
+    font-size: 1rem;
+    background: none;
+    
+}
+
+.dateInputs input ~ p{
+    margin-left: 0.2rem;
+}
+
+.dateInputs input ~ input{
+    margin-left: 0.1rem;
+}
+
+.submitInput{
+    width: 8.5rem;
+    height: 2.7rem;
+    padding: 0.4rem;
+    font-family: 'Livvic';
+    font-size: 0.9rem;
+    font-weight: bold;
+    background-color: var(--green);
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    transition: filter 0.3s;
+}   
+
+.submitInput:hover{
+    filter: brightness(110%);
+}
+
+.submitInput:focus{
+    border: none;
+    outline: none;
 }
 
 .calendar{
@@ -37,6 +158,7 @@
     width: 33.99rem;
     height: 23rem;
     background-color: var(--gray-details);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
 }
 
 .monthYear{
@@ -49,6 +171,7 @@
 }
 
 .monthYear button {
+    user-select: none;
     height: 100%;
     font-size: 4rem;
     background-color: transparent;
@@ -112,6 +235,7 @@
 }
 
 .days button{
+    user-select: none;
     text-align: center;
     background-color: #E2E2E2;
     font-family: 'Livvic';
@@ -138,6 +262,30 @@
     cursor: default;
 }
 
+.alert{
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif   , 'Karma';
+    font-weight: normal;
+    border: 1px solid #000000;
+    text-align: center;
+    font-size: 1.2rem;
+}
+.error{
+    background-color: rgba(255, 167, 167, 0.172);
+    border-color: rgb(255, 55, 55);
+    color: rgb(255, 55, 55);
+    margin-bottom: 2rem;
+}
+
+.warning{
+    background-color: rgba(255, 247, 0, 0.46);
+    border-color: rgb(255, 247, 0);
+    color: rgb(0, 0, 0);
+    margin-top: 1rem;
+}
+
 .tableSection{
     width: 90%;
     margin: 5rem auto;
@@ -147,7 +295,6 @@
 
 .table{
     margin-top: 1.9rem;
-    height: 28rem;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -180,7 +327,7 @@
 .values{
     border-left: 1px solid #B9B3B3;
     border-right: 1px solid #B9B3B3;
-    height: 2.9rem;
+    height: 2.9rem; 
     transition: 0.1s;
     font-family: 'Livvic';
     font-size: 1.1rem;
