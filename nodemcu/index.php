@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Livvic:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&family=Rhodium+Libre&family=Roboto&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="./js/caroulse.js"></script>
+
 </head>
 <body>
     
@@ -44,56 +47,113 @@
         
         <div class="leftSide">
             <h1 class="title">Bem Vindo :&#41;</h1>
-            <p>Olá, esta é a página inicial do nosso sistema, o SIA ou Sistema de Irrigação Automatizada. para saber mais detalhes sobre este projeto incrível, clique na sessão  ‘Sobre o sistema’ ou se preferir, <a href="#">clique aqui mesmo!</a>
-            </br>
-            </br>
-            Confira as fotos tiradas durante o desenvolvimento do nosso sistema, desde os protótipos, até a instalação do hardware no solo.</p>
+            <p>
+                Olá, esta é a página inicial do nosso sistema, o SIA ou Sistema de Irrigação Automatizada. 
+                para saber mais detalhes sobre este projeto incrível, clique na sessão  ‘Sobre o sistema’ 
+                ou se preferir, <a href="./sobre_sistema.php">clique aqui mesmo!</a>
+                </br>
+                </br>
+                Confira as fotos tiradas durante o desenvolvimento do nosso sistema, desde os protótipos, 
+                até a instalação do hardware no solo.
+            </p>
         </div>
 
         <div class="rightSide">
-
-            <div class="photos">
+            <div class="slideshow" id="slideshow">
+                <div class="slidebolinhas" id="slidebolinhas">
+                    <div class="bolinha" id="bolinha" onclick=" mudarSlide(0) " ></div>
+                    <div class="bolinha" id="bolinha" onclick=" mudarSlide(1) " ></div>
+                    <div class="bolinha" id="bolinha" onclick=" mudarSlide(2) " ></div>
+                </div>
+                <div class="slideshowarea">
+                    <div class="slide" style="background-image:url('./assets/foto-guarabira.jpg')" >
+                        <div class="slideinfo">
+                            <div class="slideinfo_titulo"> IFPB - GUARABIRA </div>
+                            <div class="slideinfo_subtitulo"> Imagem do IFPB Campus Guarabira</div>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image:url('./assets/foto-guarabira.jpg')" >
+                        <div class="slideinfo">
+                            <div class="slideinfo_titulo"> IFPB - GUARABIRA </div>
+                            <div class="slideinfo_subtitulo">Imagem do IFPB Campus Guarabira </div>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image:url('./assets/foto-guarabira.jpg')" >
+                        <div class="slideinfo">
+                            <div class="slideinfo_titulo"> IFPB - GUARABIRA </div>
+                            <div class="slideinfo_subtitulo"> Imagem do IFPB Campus Guarabira</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        
         </div>
     </section>
 
     <section class="tableSection">
         <h1 class="title">Últimos Registros</h1>
-        
-        <div class="table">
-            <div class="tableTitles">
-                <div class="tTitle">
-                    Nível de umidade&#40;&#37;&#41;	 
-                </div>
-                <div class="tTitle">
-                    Data da leitura 
-                </div>
-                <div class="tTitle">
-                    Hora da leitura 
-                </div>
-            </div>
-            <div class="tableGrid">
-                <div class="values line1">75,4%</div>
-                <div class="values line1">20/05/2021</div>
-                <div class="values line1">15:30:21</div>
-                <div class="values line2">59,27%</div>
-                <div class="values line2">20/05/2021</div>
-                <div class="values line2">16:05:21</div>
-                <div class="values line1">62,24%</div>
-                <div class="values line1">20/05/2021</div>
-                <div class="values line1">16:40:21</div>
-                <div class="values line2">65,43%</div>
-                <div class="values line2">20/05/2021</div>
-                <div class="values line2">17:15:21</div>
-                <div class="values line1">66,94%</div>
-                <div class="values line1">20/05/2021</div>
-                <div class="values line1">17:50:21</div>
-            </div>
-        </div>
- 
-    </section>
 
+        <?php
+            $erro = 1;
+
+            include('conexao.php');
+
+            $dataAtual = date('Y/m/d');
+            $data = $_POST['data_leitura'];
+            
+            $sql = "SELECT * FROM registrosUmidade WHERE data_leitura = '$dataAtual'";
+
+            $stmt = $PDO->prepare($sql);
+            $stmt->execute();
+
+            echo"<div class=\"table\">
+                    <div class=\"tableTitles\">
+                        <div class=\"tTitle\">
+                            Nível de umidade&#40;&#37;&#41;	 
+                        </div>
+                        <div class=\"tTitle\">
+                            Data da leitura 
+                        </div>
+                        <div class=\"tTitle\">
+                            Hora da leitura 
+                        </div>
+                    </div>";
+            echo"<div class=\"tableGrid\">";
+            
+            $cont = 0;
+
+            while($linha = $stmt->fetch(PDO::FETCH_OBJ)){
+                    
+                if(($cont % 2) == 0){
+                    $aux = 1;
+                }else{
+                    $aux = 2;
+                }
+
+                $timestamp = strtotime($linha->data_leitura);
+                $dataTabela = date('d/m/Y', $timestamp);
+            
+                echo "<div class=\"values line" . $aux . "\">" . $linha->nivelUmidade . "</div>
+                    <div class=\"values line" . $aux . "\">" . $dataTabela . "</div>
+                    <div class=\"values line" . $aux . "\">" . $linha->hora_leitura . "</div>";
+        
+                
+                $cont = $cont + 1;
+            }
+            
+            if($cont == 0){
+                echo "</div>
+            </div>
+            
+            <div class=' alert warning'>Não foram registradas novas informações base de dados</div>
+            ";
+            }
+            else{
+                echo "</div>
+            </div>";
+            }
+        ?>
+    </section>
+    
     <footer style="background-image: url(assets/footer.png)";>
         <div class="footerLeft">
             <img src="assets/SIA_w.svg" alt="SIA">
@@ -108,9 +168,9 @@
                 <h2>Contato</h2>
                 <p>emailproj@email.com</p>
                 <div>
-                    <a href="#"><img src="assets/icons/github.svg" alt="github"></a>
-                    <a href="#"><img src="assets/icons/instagram.svg" alt="instagram"></a>
-                    <a href="#"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
+                    <a href="#" target="_blank"><img src="assets/icons/github.svg" alt="github"></a>
+                    <a href="#" target="_blank"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
                 </div>
             </section>
             <section class="contactDevelopers">
@@ -119,18 +179,18 @@
                     <div class="contact">
                         <h3>Joalison Matheus</h3>
                         <div>
-                            <a href="#"><img src="assets/icons/github.svg" alt="github"></a>
-                            <a href="#"><img src="assets/icons/instagram.svg" alt="instagram"></a>
-                            <a href="#"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
+                            <a href="https://github.com/JoalisonM" target="_blank"><img src="assets/icons/github.svg" alt="github"></a>
+                            <a href="https://www.instagram.com/joalison.matheus/" target="_blank"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+                            <a href="https://www.linkedin.com/in/joalison-matheus-125781208/" target="_blank"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
                         </div>
-                        <p>joalison@email.com</p>
+                        <p>joalisonmatheus0@gmail.com</p>
                     </div>
                     <div class="contact">
                         <h3>Pedro Gustavo</h3>
                         <div>
-                            <a href="#"><img src="assets/icons/github.svg" alt="github"></a>
-                            <a href="#"><img src="assets/icons/instagram.svg" alt="instagram"></a>
-                            <a href="#"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
+                            <a href="https://github.com/PedroGustav" target="_blank"><img src="assets/icons/github.svg" alt="github"></a>
+                            <a href="https://www.instagram.com/pedro.gustavo_/" target="_blank"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+                            <a href="#" target="_blank"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
                         </div>
                         <p>pedro@email.com</p>
                     </div>
@@ -145,20 +205,6 @@
     </form>
     !-->
 
-    <?php
-        include('conexao.php');
-        if($_SERVER['REQUEST_METHOD'] == "POST"){
-            if($_POST['data'] == ""){
-                echo "<h1> Não recebeu nada </h1>";
-            }else{
-                echo "<h1> Recebeu a data: " . $_POST['data'] . "</h1>";
-            }
-        } else{
-            ;
-
-        }
-
-    ?>
    <!-- <table>
         <tr>
             <th>Sensor1</th>

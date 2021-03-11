@@ -1,0 +1,136 @@
+.secao {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 3.125rem auto;
+    margin-top: 0.5rem;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 3.125rem auto;
+}
+
+.leftside {
+    width: 40%;
+}
+
+.rightside {
+    width: 40%;
+}
+
+.foto {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -13%;
+}
+
+.foto::before {
+    content: "";
+    width: 100%;
+    height: 200px;
+    background-color: #16a085;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -4;
+    transform: skewY(3deg);
+}
+.foto::after {
+    content: "";
+    width: 100%;
+    height: 200px;
+    background-image: url(../assets/footer.png);
+    z-index: -1;
+    transform: skewY(-4deg);
+}
+
+.title h1{
+    font-family: 'Livvic';
+    text-decoration: underline 3px var(--green) ; 
+    margin-bottom: 2.5rem;
+    font-size: 1.9rem;
+}
+
+.text p {
+    margin-left: 2.5rem;
+    font-size: 1rem;
+    font-family: 'Rhodium Libre', serif;
+    text-align: justify;
+    width: 36rem;
+}
+
+.items-container {
+    display: flex;
+    width: 90%;
+    margin-top: 70px;
+    align-items: stretch;
+}
+
+.banner1, .banner2, .banner3 {
+    flex: 1;
+    padding: 20px;
+    font-family: 'Rhodium Libre', serif;
+}
+
+.image {
+    overflow: hidden;
+    align-items: center;
+    height: 160px;
+    max-width: 100%;
+}
+
+.image img {
+    height: 128px;
+    max-width: 100%;
+    display: block;
+    margin:auto;
+    margin-top: 5px;
+	-moz-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.image:hover img {
+	-moz-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.banner_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    border-bottom: 1px solid #333333;
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.banner_subtitle {
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: justify;
+}

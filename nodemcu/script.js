@@ -70,39 +70,39 @@ function limparCalendario(){
 function preencherCalendario(){
     
 
-        limparCalendario();
-        
-        if(mes == 1){
-            if ((ano % 4 == 0) && ((ano % 100 != 0) || (ano % 400 == 0))){
-                for(i = 1; i <= 29; i++){
-                    f
-                    document.getElementById(cont).innerHTML = i;
-                    document.getElementById(cont).classList.remove('notActive');
-                    cont += 1;
-                }
-            }else{
-                for(i = 1; i <= 28; i++){
-                    
-                    document.getElementById(cont).innerHTML = i;
-                    document.getElementById(cont).classList.remove('notActive');
-                    cont += 1;
-                }
-            }
-        }else if((mes == 0) || (mes == 2) || (mes == 4) || (mes == 6) || (mes == 7) || (mes == 09 ) || (mes == 11)){
-            for(a = 1; a <= 31; a++){
-                
-                document.getElementById(cont).innerHTML = a;
+    limparCalendario();
+    
+    if(mes == 1){
+        if ((ano % 4 == 0) && ((ano % 100 != 0) || (ano % 400 == 0))){
+            for(i = 1; i <= 29; i++){
+                f
+                document.getElementById(cont).innerHTML = i;
                 document.getElementById(cont).classList.remove('notActive');
                 cont += 1;
             }
         }else{
-            for(i = 1; i <= 30; i++){
+            for(i = 1; i <= 28; i++){
                 
                 document.getElementById(cont).innerHTML = i;
                 document.getElementById(cont).classList.remove('notActive');
                 cont += 1;
             }
         }
+    }else if((mes == 0) || (mes == 2) || (mes == 4) || (mes == 6) || (mes == 7) || (mes == 09 ) || (mes == 11)){
+        for(a = 1; a <= 31; a++){
+            
+            document.getElementById(cont).innerHTML = a;
+            document.getElementById(cont).classList.remove('notActive');
+            cont += 1;
+        }
+    }else{
+        for(i = 1; i <= 30; i++){
+            
+            document.getElementById(cont).innerHTML = i;
+            document.getElementById(cont).classList.remove('notActive');
+            cont += 1;
+        }
+    }
     cont = 0;
     document.getElementById('DateText').innerHTML = meses[mes] + ' de ' + document.getElementById('year').value;
         
@@ -149,14 +149,14 @@ function processa(element,time,initial,end){
 
 
     intervalo = setInterval(function(){
-             if((opc == end)){
-                      if(end == 0){
-                      }
-                      clearInterval(intervalo);
-             }else {
-                      opc += increment;
-                      element.style.opacity = opc/100;
-                      element.style.filter = "alpha(opacity="+opc+")";
-             }
-    },time * 10);
+        if((opc == end)){
+                if(end == 0){
+                }
+                clearInterval(intervalo);
+        }else {
+                opc += increment;
+                element.style.opacity = opc/100;
+                element.style.filter = "alpha(opacity="+opc+")";
         }
+    },time * 10);
+}

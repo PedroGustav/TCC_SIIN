@@ -39,18 +39,167 @@
     text-decoration: underline 1px var(--green);
 }
 
-.rightSide{
-    width: 40%;
+.welcomeSection .rightSide{
+    width: 550px;
+    min-height: 200px;
+    float: right;
+}
+
+.welcomeSection .rightSide .slideshowarea a {
+    text-decoration: none;
+}
+
+.welcomeSection .rightSide .slideshow .slidebolinhas{
+    margin-top: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.photos{
-    background-color: var(--gray-details);
+    position: absolute;
     width: 550px;
-    height: 300px;
+    height: 20px;
 }
 
+.welcomeSection .rightSide .slideshow .bolinha {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #16a085;
+    border-radius: 10px;
+    margin: 5px;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
 
+.welcomeSection .rightSide .slideshow .bolinha:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
 
+.welcomeSection .rightSide .slideshow  {
+    height: 330px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.25);
+    align-items: center;
+}
+
+.welcomeSection .rightSide .slideshow .slideshowarea {
+    width: 100000px;
+    height: 330px;
+    transition: all 1s;
+}
+
+.welcomeSection .rightSide .slideshow .slideshowarea .slide {
+    height: 330px;
+    width: 550px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    float: left;
+}
+
+.welcomeSection .rightSide .slideshow .slideshowarea .slide .slideinfo {
+    height: 70px;
+    background-image:url('../assets/slideshow_bg.png');
+    background-size: auto 70px;
+    margin-top: 265px;
+}
+
+.welcomeSection .rightSide .slideshow .slideshowarea .slide .slideinfo .slideinfo_titulo {
+    font-size: 15px;
+    color: #FFFFFF;
+    padding-top: 15px;
+    padding-left: 20px;
+    font-family: 'Rhodium Libre', serif;
+}
+
+.welcomeSection .rightSide .slideshow .slideshowarea .slide .slideinfo .slideinfo_subtitulo {
+    font-size: 10px;
+    color: #FFFFFF;
+    padding-left: 20px;
+    font-family: 'Rhodium Libre', serif;
+}
+
+.welcomeSection .rightSide .register .title {
+    font-family: 'Livvic';
+    text-decoration: underline 3px var(--green) ; 
+}
+
+.tableSection .alert{
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif   , 'Karma';
+    font-weight: normal;
+    border: 1px solid #000000;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.tableSection .warning{
+    background-color: rgba(255, 247, 0, 0.46);
+    border-color: rgb(255, 247, 0);
+    color: rgb(0, 0, 0);
+    margin-top: 1rem;
+}
+
+.tableSection{
+    width: 90%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.table{
+    margin-top: 1.9rem;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tableTitles{
+    border-bottom: 1px solid var(--green);
+    border-top: 1px solid var(--green);
+    width: 100%;
+    height: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Karma', serif;
+    font-size: 1rem;
+}
+
+.tableGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.values{
+    border-left: 1px solid #B9B3B3;
+    border-right: 1px solid #B9B3B3;
+    height: 2.9rem; 
+    transition: 0.1s;
+    font-family: 'Livvic';
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.line1{
+    background-color: var(--gray-table-row);
+}
+
+.line2{
+    background-color: var(--gray-details);
+}

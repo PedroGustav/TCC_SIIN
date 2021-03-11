@@ -244,9 +244,12 @@
                     }else{
                         $aux = 2;
                     }
+
+                    $timestamp = strtotime($linha->data_leitura);
+                    $dataTabela = date('d/m/Y', $timestamp);
                 
                     echo "<div class=\"values line" . $aux . "\">" . $linha->nivelUmidade . "</div>
-                          <div class=\"values line" . $aux . "\">" . $linha->data_leitura . "</div>
+                          <div class=\"values line" . $aux . "\">" . $dataTabela . "</div>
                           <div class=\"values line" . $aux . "\">" . $linha->hora_leitura . "</div>";
             
                     
@@ -283,9 +286,9 @@
                 <h2>Contato</h2>
                 <p>emailproj@email.com</p>
                 <div>
-                    <a href="#"><img src="assets/icons/github.svg" alt="github"></a>
-                    <a href="#"><img src="assets/icons/instagram.svg" alt="instagram"></a>
-                    <a href="#"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
+                    <a href="#" target="_blank"><img src="assets/icons/github.svg" alt="github"></a>
+                    <a href="#" target="_blank"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+                    <a href="#" target="_blank"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
                 </div>
             </section>
             <section class="contactDevelopers">
@@ -294,18 +297,18 @@
                     <div class="contact">
                         <h3>Joalison Matheus</h3>
                         <div>
-                            <a href="#"><img src="assets/icons/github.svg" alt="github"></a>
-                            <a href="#"><img src="assets/icons/instagram.svg" alt="instagram"></a>
-                            <a href="#"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
+                            <a href="https://github.com/JoalisonM" target="_blank"><img src="assets/icons/github.svg" alt="github"></a>
+                            <a href="https://www.instagram.com/joalison.matheus/" target="_blank"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+                            <a href="https://www.linkedin.com/in/joalison-matheus-125781208/" target="_blank"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
                         </div>
-                        <p>joalison@email.com</p>
+                        <p>joalisonmatheus0@gmail.com</p>
                     </div>
                     <div class="contact">
                         <h3>Pedro Gustavo</h3>
                         <div>
-                            <a href="#"><img src="assets/icons/github.svg" alt="github"></a>
-                            <a href="#"><img src="assets/icons/instagram.svg" alt="instagram"></a>
-                            <a href="#"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
+                            <a href="https://github.com/PedroGustav" target="_blank"><img src="assets/icons/github.svg" alt="github"></a>
+                            <a href="https://www.instagram.com/pedro.gustavo_/" target="_blank"><img src="assets/icons/instagram.svg" alt="instagram"></a>
+                            <a href="#" target="_blank"><img src="assets/icons/linkedin.svg" alt="linkedin"></a>
                         </div>
                         <p>pedro@email.com</p>
                     </div>

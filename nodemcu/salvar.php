@@ -2,13 +2,13 @@
 
     include('conexao.php');
 
-    $sensor = $_GET['sensor'];
+    $nivelUmidade = $_GET['nivelUmidade'];
     
-    $sql = "INSERT INTO registrosUmidade (nivelUmidade) VALUES (:sensor)";
+    $sql = "INSERT INTO registrosUmidade (nivelUmidade) VALUES (:nivelUmidade)";
 
     $stmt = $PDO->prepare($sql);
 
-    $stmt->bindParam(':sensor', $sensor);
+    $stmt->bindParam(':nivelUmidade', $nivelUmidade);
 
 
     if($stmt->execute()) {
