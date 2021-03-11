@@ -57,9 +57,15 @@ function mudarSlide(pos) {
 	var i;
 	for (i = 0; i < cor.length; i++) {
 		cor[i].style.background = "#C4C4C4";
+		cor[i].style.transition = "all 0.7s ease";
+		cor[i].style.transform = "scale(1.2)";
+		cor[i].style.boxShadow = "2px 4px 5px #888888";
 
 		if (slideItem != i) {
 			cor[i].style.background = "#16a085";
+			cor[i].style.transition = "all 0.0s ease";
+			cor[i].style.transform = "scale(1.0)";
+			cor[i].style.boxShadow = "0px 0px 0px";
 		}
 	}
 }
