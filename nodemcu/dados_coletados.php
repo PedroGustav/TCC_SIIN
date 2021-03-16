@@ -248,7 +248,7 @@
                     $timestamp = strtotime($linha->data_leitura);
                     $dataTabela = date('d/m/Y', $timestamp);
                 
-                    echo "<div class=\"values line" . $aux . "\">" . $linha->nivelUmidade . "</div>
+                    echo "<div class=\"values line" . $aux . "\">" . $linha->nivelUmidade . "%" . "</div>
                           <div class=\"values line" . $aux . "\">" . $dataTabela . "</div>
                           <div class=\"values line" . $aux . "\">" . $linha->hora_leitura . "</div>";
             

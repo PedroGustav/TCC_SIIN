@@ -1,5 +1,5 @@
 #include <ESP8266WiFi.h>
-#include<WiFiClient.h>
+#include <WiFiClient.h>
 
 /* WiFi*/
 char ssid[] = "FTTH JAILTON"; // Nome da Rede WiFi
@@ -16,7 +16,7 @@ const byte ledB = D3; // Led azul
 
 int nivelUmidade;
 
-void setup() {
+void setup() { /*Funçao de declaçao de variaveis*/
 
   pinMode(sensor, INPUT);
   pinMode(estadoRele, OUTPUT);
@@ -32,14 +32,14 @@ void setup() {
 
   digitalWrite(estadoRele, HIGH);
 
-  
 }
 
-void loop() {
+void loop() { /*Funçao onde fica as funcionalidades do sistema*/
 
   nivelUmidade = analogRead(sensor);
+  nivelUmidade = map(nivelUmidade, 1024, 0, 0, 100); /*Convertendo de inteiro para porcentagem*/
 
-  if (nivelUmidade > 700) {
+  if (nivelUmidade <= 40) {  /*Se o nivel da umidade for menor/igual que 40%*/
     digitalWrite(ledR, HIGH);
     digitalWrite(ledB, HIGH);
     digitalWrite(ledG, LOW);
@@ -49,8 +49,36 @@ void loop() {
     digitalWrite(estadoRele, HIGH);
     digitalWrite(ledB, LOW);
     delay(3000);
+  }
 
-    /*------------------------------------------------------------------------------------------*/
+  else if ((nivelUmidade >= 50) && (nivelUmidade < 60)){ /*Se o nivel da umidade for maior/igual que 50% e menor que 60%*/
+    digitalWrite(ledY, HIGH);
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledG, LOW);
+    digitalWrite(ledB, LOW);
+    digitalWrite(estadoRele, HIGH);
+  }
+
+  else if((nivelUmidade >= 60) && (nivelUmidade < 80)) { /*Se o nivel da umidade for maior/igual que 60% e menor que 80%*/
+    digitalWrite(ledG, HIGH);
+    digitalWrite(ledR, LOW);
+    digitalWrite(ledY, LOW);
+    digitalWrite(ledB, LOW);
+    digitalWrite(estadoRele, HIGH);
+  }
+
+  else if(nivelUmidade >= 80){ /*Se o nivel da umidade for maior/igual que 80%*/
+    digitalWrite(ledR, HIGH);
+    digitalWrite(ledG, LOW);
+    digitalWrite(ledY, LOW);
+    digitalWrite(ledB, LOW);
+    digitalWrite(estadoRele, HIGH);
+    delay(200);
+    digitalWrite(ledR, LOW);
+    delay(200);
+  }
+
+  /*----------------- Enviando os dados para a aplicaçao web -----------------*/
     Serial.print("connecting to ");
     Serial.println(host);
   
@@ -102,37 +130,9 @@ void loop() {
     Serial.println();
     
     client.stop();
+    /*---------------------------------------------------------------------------*/
   
-    delay(6000); // execute once every 6 seconds, don't flood remote service
-  }
-
-  else if ((nivelUmidade <= 600) && (nivelUmidade > 400)){
-    digitalWrite(ledY, HIGH);
-    digitalWrite(ledR, LOW);
-    digitalWrite(ledG, LOW);
-    digitalWrite(ledB, LOW);
-    digitalWrite(estadoRele, HIGH);
-  }
-
-  else if((nivelUmidade < 400) && (nivelUmidade > 300)) {
-    digitalWrite(ledG, HIGH);
-    digitalWrite(ledR, LOW);
-    digitalWrite(ledY, LOW);
-    digitalWrite(ledB, LOW);
-    digitalWrite(estadoRele, HIGH);
-  }
-
-  else if(nivelUmidade < 300){
-    digitalWrite(ledG, HIGH);
-    digitalWrite(ledR, HIGH);
-    digitalWrite(ledY, LOW);
-    digitalWrite(ledB, LOW);
-    digitalWrite(estadoRele, HIGH);
-    
-    delay(200);
-    digitalWrite(ledR, LOW);
-    delay(200);
-  }
+    delay(3000); // execute once every 6 seconds, don't flood remote service
   
 }
 
