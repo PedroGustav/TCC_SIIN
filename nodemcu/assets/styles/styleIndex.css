@@ -102,7 +102,7 @@
 
 .welcomeSection .rightSide .slideshow .slideshowarea .slide .slideinfo {
     height: 70px;
-    background-image:url('../assets/slideshow_bg.png');
+    background-image:url('../images/slideshow_bg.png');
     background-size: auto 70px;
     margin-top: 265px;
 }

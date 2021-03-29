@@ -132,7 +132,7 @@ void loop() { /*Funçao onde fica as funcionalidades do sistema*/
     client.stop();
     /*---------------------------------------------------------------------------*/
   
-    delay(3000); // execute once every 6 seconds, don't flood remote service
+    delay(7200000); // execute once every 2 hours, don't flood remote service
   
 }
 

@@ -17,19 +17,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .box {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 90%;
+    justify-content: center;
+    width: 100%;
     margin: 3.125rem auto;
 }
 
 .leftside {
-    width: 40%;
+    width: 60%;
 }
 
 .rightside {
@@ -42,30 +41,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: -13%;
-}
-
-.foto::before {
-    content: "";
-    width: 100%;
-    height: 200px;
-    background-color: #16a085;
-    background-size: cover;
-    background-position: center bottom;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -4;
-    transform: skewY(3deg);
-}
-.foto::after {
-    content: "";
-    width: 100%;
-    height: 200px;
-    background-image: url(../assets/footer.png);
-    z-index: -1;
-    transform: skewY(-4deg);
 }
 
 .title h1{
@@ -76,11 +51,9 @@
 }
 
 .text p {
-    margin-left: 2.5rem;
     font-size: 1rem;
     font-family: 'Rhodium Libre', serif;
     text-align: justify;
-    width: 36rem;
 }
 
 .items-container {
@@ -99,12 +72,12 @@
 .image {
     overflow: hidden;
     align-items: center;
-    height: 160px;
+    height: 120px;
     max-width: 100%;
 }
 
 .image img {
-    height: 128px;
+    height: 120px;
     max-width: 100%;
     display: block;
     margin:auto;
