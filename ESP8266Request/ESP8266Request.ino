@@ -2,10 +2,10 @@
 #include <WiFiClient.h>
 
 /* WiFi*/
-char ssid[] = "INTELBRAS"; // Nome da Rede WiFi
-char password[] = "a1b2c3d4"; //Senha da Rede WiFi
+char ssid[] = "FTTH JAILTON"; // Nome da Rede WiFi
+char password[] = "afjo2811"; //Senha da Rede WiFi
 
-const char* host = "10.0.0.36 "; //IP da máquina local
+const char* host = "192.168.100.50";
 
 #define sensor A0 // sensor de umidade do solo
 const byte estadoRele = D8; // rele
@@ -15,6 +15,9 @@ const byte ledR = D2; // Led vermelho
 const byte ledB = D3; // Led azul
 
 int nivelUmidade;
+
+unsigned long tempoAnterior = 0;
+unsigned long periodo = 3600000;
 
 void setup() { /*Funçao de declaçao de variaveis*/
 
@@ -34,11 +37,10 @@ void setup() { /*Funçao de declaçao de variaveis*/
 
 }
 
-void loop() { 
-  
-  /*Funçao onde fica as funcionalidades do sistema*/
-  nivelUmidade = analogRead(sensor);
-  nivelUmidade = map(nivelUmidade, 0, 1024, 0, 100); /*Convertendo de inteiro para porcentagem*/
+void loop() { /*Funçao onde fica as funcionalidades do sistema*/
+
+  nivelUmidade = analogRead(sensor);                    
+  nivelUmidade = map(nivelUmidade, 1024, 0, 0, 100); /*Convertendo de inteiro para porcentagem*/
 
   if (nivelUmidade <= 40) {  /*Se o nivel da umidade for menor/igual que 40%*/
     digitalWrite(ledR, HIGH);
@@ -79,7 +81,18 @@ void loop() {
     delay(200);
   }
 
-  /*----------------- Enviando os dados para a aplicaçao web -----------------*/
+  enviarDados();
+  
+}
+
+void enviarDados() {
+
+  unsigned long tempoAtual = millis();
+  
+  if(tempoAtual - tempoAnterior >= periodo){
+    
+    tempoAnterior = tempoAtual;
+    /*----------------- Enviando os dados para a aplicaçao web -----------------*/
     Serial.print("connecting to ");
     Serial.println(host);
   
@@ -92,7 +105,7 @@ void loop() {
       return;
     }
   
-    String url = "/nodemcu/salvar.php?";
+    String url = "/salvar.php?";
       url += "nivelUmidade=";
       url += nivelUmidade;
   
@@ -111,7 +124,6 @@ void loop() {
       if (millis() - timeout > 5000) {
         Serial.println(">>> Client Timeout !");
         client.stop();
-        delay(60000);
         return;
       }
     }
@@ -131,12 +143,11 @@ void loop() {
     Serial.println();
     
     client.stop();
-    /*---------------------------------------------------------------------------*/
-  
-    delay(3600000); // execute once every 1 hour, don't flood remote service
-  
-}
 
+    delay(10);
+  }
+}
+ 
 void conectaWiFi(char SSID[], char PASSWORD[]){
 
   Serial.print("Conectando a rede ");
