@@ -196,10 +196,10 @@
 
 }
 
-.line1{
-    background-color: var(--gray-table-row);
+    .line1{
+        background-color: var(--gray-table-row);
 }
 
-.line2{
-    background-color: var(--gray-details);
+    .line2{
+        background-color: var(--gray-details);
 }

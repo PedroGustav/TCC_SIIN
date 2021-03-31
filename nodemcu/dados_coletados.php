@@ -219,7 +219,7 @@
                 $stmt = $PDO->prepare($sql);
             $stmt->execute();
 
-            echo"<div class=\"table\">
+            echo"<div class=\"table results\">
                     <div class=\"tableTitles\">
                         <div class=\"tTitle\">
                             Nível de umidade&#40;&#37;&#41;	 

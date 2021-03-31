@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="assets/styles/global.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Livvic:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&family=Rhodium+Libre&family=Roboto&display=swap" rel="stylesheet">
-        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <script type="text/javascript" src="./assets/js/caroulse.js"></script>
 
     </head>
@@ -97,9 +97,9 @@
                 include('conexao.php');
 
                 $dataAtual = date('Y/m/d');
-                $data = $_POST['data_leitura'];
                 
-                $sql = "SELECT * FROM registrosUmidade WHERE data_leitura = '$dataAtual'";
+                
+                $sql = "SELECT * FROM registrosUmidade LIMIT 5";
 
                 $stmt = $PDO->prepare($sql);
                 $stmt->execute();
@@ -153,7 +153,7 @@
             ?>
         </section>
         
-        <footer style="background-image: url(./assets/images/footer.png)";>
+        <footer >
             <div class="footerLeft">
                 <img src="./assets/images/SIA_w.svg" alt="SIA">
                 <div>

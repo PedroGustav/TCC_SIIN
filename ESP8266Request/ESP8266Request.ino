@@ -2,10 +2,10 @@
 #include <WiFiClient.h>
 
 /* WiFi*/
-char ssid[] = "FTTH JAILTON"; // Nome da Rede WiFi
-char password[] = "afjo2811"; //Senha da Rede WiFi
+char ssid[] = "INTELBRAS"; // Nome da Rede WiFi
+char password[] = "a1b2c3d4"; //Senha da Rede WiFi
 
-const char* host = "192.168.100.50";
+const char* host = "10.0.0.36 "; //IP da máquina local
 
 #define sensor A0 // sensor de umidade do solo
 const byte estadoRele = D8; // rele
@@ -34,10 +34,11 @@ void setup() { /*Funçao de declaçao de variaveis*/
 
 }
 
-void loop() { /*Funçao onde fica as funcionalidades do sistema*/
-
+void loop() { 
+  
+  /*Funçao onde fica as funcionalidades do sistema*/
   nivelUmidade = analogRead(sensor);
-  nivelUmidade = map(nivelUmidade, 1024, 0, 0, 100); /*Convertendo de inteiro para porcentagem*/
+  nivelUmidade = map(nivelUmidade, 0, 1024, 0, 100); /*Convertendo de inteiro para porcentagem*/
 
   if (nivelUmidade <= 40) {  /*Se o nivel da umidade for menor/igual que 40%*/
     digitalWrite(ledR, HIGH);
@@ -91,7 +92,7 @@ void loop() { /*Funçao onde fica as funcionalidades do sistema*/
       return;
     }
   
-    String url = "/salvar.php?";
+    String url = "/nodemcu/salvar.php?";
       url += "nivelUmidade=";
       url += nivelUmidade;
   
@@ -132,7 +133,7 @@ void loop() { /*Funçao onde fica as funcionalidades do sistema*/
     client.stop();
     /*---------------------------------------------------------------------------*/
   
-    delay(7200000); // execute once every 2 hours, don't flood remote service
+    delay(3600000); // execute once every 1 hour, don't flood remote service
   
 }
 
