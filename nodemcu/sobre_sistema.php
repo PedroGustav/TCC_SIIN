@@ -58,63 +58,53 @@
                         </div>
                         <div class="rightside">
                             <div class="foto">
-                                <img src="" alt="">
+                                <img src="./assets/images/foto-guarabira.jpg" alt="">
                             </div>
                         </div>
                     </div>
-
-                    <div class="box">
-                        <div class="leftside">
-                            <div class="foto">
-                                <img src="" alt="">
-                            </div>
-                        </div>
-                        <div class="rightside">
-                            <div class="title">
-                                <h1>Três grandes impactos da irrigação inteligente</h1>
-                            </div>
-                            <div class="text">
-                                <p>
+                    <div class="center">
+                        <div class="titleCenter">
+                            <h1>Três grandes impactos da irrigação inteligente</h1>
+                            <p>
                                 Estamos enfrentando três desafios cruciais. Superar cada um deles é essencial para o futuro do 
                                 planeta - é por isso que a irrigação inteligente existe. A tecnologia lida com todos os três, 
                                 permitindo que agricultores produzam colheitas de maior rendimento usando menos recursos.
-                                </p>
-                            </div>
+                            </p>
                         </div>
-                    </div>
 
-                    <div class="items-container">
-                        <div class="banner1">
-                            <div class="image">
-                                <img src="./assets/images/drop.svg" alt="">
+                        <div class="items-container">
+                            <div class="banner1">
+                                <div class="image">
+                                    <img src="./assets/images/drop.svg" alt="">
+                                </div>
+                                <div class="banner_title">Escassez de água e contaminação</div>
+                                <div class="banner_subtitle">
+                                    Juntas, a agricultura e a irrigação de grandes áreas externas consomem 70% do suprimento 
+                                    de água doce do planeta (dados da FAO), enquanto cada continente tem sofrido dificuldades 
+                                    em acessar reservas seguras e confiáveis
+                                </div>
                             </div>
-                            <div class="banner_title">Escassez de água e contaminação</div>
-                            <div class="banner_subtitle">
-                                Juntas, a agricultura e a irrigação de grandes áreas externas consomem 70% do suprimento 
-                                de água doce do planeta (dados da FAO), enquanto cada continente tem sofrido dificuldades 
-                                em acessar reservas seguras e confiáveis
+                            <div class="banner2">
+                                <div class="image">
+                                    <img src="./assets/images/apple.svg" alt="">
+                                </div>
+                                <div class="banner_title">Crescente demanda por comida</div>
+                                <div class="banner_subtitle">
+                                Até 2050, a população excederá nove bilhões. Para alimentá-la, precisaremos do dobro de água e 
+                                terra - mas não há o suficiente de ambos.
+                                </div>
                             </div>
-                        </div>
-                        <div class="banner2">
-                            <div class="image">
-                                <img src="./assets/images/apple.svg" alt="">
-                            </div>
-                            <div class="banner_title">Crescente demanda por comida</div>
-                            <div class="banner_subtitle">
-                            Até 2050, a população excederá nove bilhões. Para alimentá-la, precisaremos do dobro de água e 
-                            terra - mas não há o suficiente de ambos.
-                            </div>
-                        </div>
-                        <div class="banner3">
-                            <div class="image">
-                                <img src="./assets/images/sprout.svg" alt="">
-                            </div>
-                            <div class="banner_title">A necessidade de terra arável</div>
-                            <div class="banner_subtitle">
-                            Não temos como bancar mais desmatamento - precisamos cultivar mais alimentos nas terras que temos, 
-                            e mantê-las férteis, com o mínimo possível de lixiviação.
+                            <div class="banner3">
+                                <div class="image">
+                                    <img src="./assets/images/sprout.svg" alt="">
+                                </div>
+                                <div class="banner_title">A necessidade de terra arável</div>
+                                <div class="banner_subtitle">
+                                Não temos como bancar mais desmatamento - precisamos cultivar mais alimentos nas terras que temos, 
+                                e mantê-las férteis, com o mínimo possível de lixiviação.
 
 
+                                </div>
                             </div>
                         </div>
                     </div>
