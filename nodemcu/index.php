@@ -89,22 +89,22 @@
             </div>
         </section>
 
-        <section class="tableSection">
+        <section class="tableSection results">
             <h1 class="title">Últimos Registros</h1>
 
             <?php
 
                 include('conexao.php');
 
-                $dataAtual = date('Y/m/d');
+                $dataAtual =   date('Y/m/d');
                 
                 
-                $sql = "SELECT * FROM registrosUmidade LIMIT 5";
+                $sql = "SELECT * FROM registrosUmidade  ORDER BY hora_leitura DESC LIMIT 5  ";
 
                 $stmt = $PDO->prepare($sql);
                 $stmt->execute();
 
-                echo"<div class=\"table\">
+                echo"<div class=\"table \">
                         <div class=\"tableTitles\">
                             <div class=\"tTitle\">
                                 Nível de umidade&#40;&#37;&#41;	 

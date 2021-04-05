@@ -350,7 +350,6 @@ footer{
         font-size: 14px;
     }
 
-
     .navOptions a{
         font-size: 0.95rem;
     }
@@ -374,18 +373,20 @@ footer{
         flex-direction: column;
     }
 
-    .rightSide{
-        width: 100%;
-
+    #calendar{
+        margin-left: -10px;
         transform: scale(0.9);
+        margin-bottom: 0;
     }
+
+    
 
     .tableSection{
-        margin-top: 380px;
+        margin-top: 0px;
     }
-
     .results{
-        margin-top: 60px;
+
+        margin-top: 380px;
     } 
 
     footer{
@@ -402,4 +403,53 @@ footer{
         transform: scale(0.7);
         margin-left: 40px;
     }
+
+
+    .secao{
+        margin: 10px auto;
+        margin-bottom: 0;
+    }
+    .box{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .leftside{
+        width: 100%;
+    }
+
+
+    .leftside h1{
+        width: 390px;
+        font-size: 10px;
+        margin-left: 2rem;
+    }
+
+    .leftside p{
+        width: 400px;
+    }
+
+    .rightside{
+        display: none;
+    }
+
+    .foto img{
+        display: none;
+    }
+
+    .titleCenter{
+        width: 400px;
+    }
+
+    .titleCenter p  {
+        width: 1px;
+        word-wrap: break-word;
+    }
+    
+    .items-container{
+        flex-direction: column;
+
+    }
+
+    
 }

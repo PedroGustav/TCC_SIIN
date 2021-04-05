@@ -1,4 +1,5 @@
 .secao {
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -6,38 +7,44 @@
     margin-top: 0.5rem;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.containerint {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
 .box {
+    width: 95%;
     display: flex;
-    justify-content: center;
-    width: 1265px;
-    margin-top: 3.125rem;
+    justify-content: space-between;
+    margin-top: 3.125rem ;
 }
 
 .leftside {
-    width: 759px;
-    float: left;
+    width: 50%;
 }
 
+.leftside p {
+    
+    font-size: 1rem;
+    font-family: 'Rhodium Libre', serif;
+    text-align: justify;
+    margin-left: 2rem;
+    line-height: 1cm;    
+}
+
+.leftside h1{
+    font-family: 'Livvic';
+    text-decoration: underline 3px var(--green) ; 
+    margin-bottom: 2.5rem;
+    font-size: 1.9rem;
+}
+
+
+
 .rightside {
-    width: 506px;
-    float: right;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .foto {
-    width: 100%;
+    width: 498px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,24 +53,13 @@
 
 .foto img{
     height: 330px;
-    width: 506px;
+    
 }
 
-.title h1{
-    font-family: 'Livvic';
-    text-decoration: underline 3px var(--green) ; 
-    margin-bottom: 2.5rem;
-    font-size: 1.9rem;
-}
 
-.text {
-    width: 659px;
-}
-.text p {
-    font-size: 1rem;
-    font-family: 'Rhodium Libre', serif;
-    text-align: justify;
-}
+
+
+
 
 .center {
     display: flex;
@@ -88,7 +84,7 @@
     font-size: 1rem;
     font-family: 'Rhodium Libre', serif;
     font-size: 1rem;
-    width: 1200px;
+    width: 100%;
     padding: 20px;
     text-align: center;
 }

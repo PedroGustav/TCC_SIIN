@@ -52,14 +52,15 @@
             escolher no calendário ao lado a data que você deseja 
             realizar a pesquisa :&#41; </p>
         </div>
-        <div class="rightSide">
+        <div class="rightSide" id="calendar">
             
-            <div class="calendar">
+            <div class="calendar" >
                 <div class="monthYear">
                     <button onClick="VoltarMes()">&#60;</button>
-                    <div>
-                        <p id= "Month" class = "month">Março</p>
-                        <p id= "Year" class = "year" >2021</p>
+                    <div>           
+                         
+                        <p id= "Month" class = "month" ></p>
+                        <p id= "Year" class = "year" ></p>
                     </div>
                     <button onClick="AvancarMes()">&#62;</button>
                 </div>

@@ -40,21 +40,15 @@
             </ul>
         </header>
         <section class="secao">
-            <div class="container">
-                <div class="containerint">
                     <div class="box">
                         <div class="leftside">
-                            <div class="title">
-                                <h1>Sobre o Sistema de Irrigação Inteligente</h1>
-                            </div>
-                            <div class="text">
+                                <h1>Sobre o Sistema de Irrigação Inteligente</h1>   
                                 <p>
                                     Finalmente, na irrigação, a abordagem mais sustentável é também a mais rentável. 
                                     A irrigação inteligente está proporcionando a agricultores em todo o mundo colheitas 
                                     de maior rendimento usando menos. E isso está conservando importantes recursos globais, 
                                     desde água e energia, até terra arável.
                                 </p>
-                            </div>
                         </div>
                         <div class="rightside">
                             <div class="foto">
@@ -108,8 +102,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+
         </section>
 
         <footer style="background-image: url(./assets/images/footer.png)";>

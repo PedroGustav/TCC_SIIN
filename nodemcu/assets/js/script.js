@@ -10,6 +10,8 @@ var cont = pdia.getDay() + 1;
 document.getElementById('month').value = mes + 1;
 document.getElementById('year').value = ano;
 var meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+document.getElementById('Month').innerText = meses[mes];
+document.getElementById('Year').innerText = ano;
 
 m = document.getElementById("Month");
 function AvancarMes(){

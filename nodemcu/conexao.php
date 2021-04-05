@@ -2,9 +2,9 @@
     try{
 
         $HOST = "localhost";
-        $DATABSE = "dbnodemcu";
+        $DATABSE = "nodemcu";
         $USER = "root";
-        $PASSWORD = "";
+        $PASSWORD = "root";
 
         $PDO = new PDO("mysql:host=" . $HOST . ";dbname=" . $DATABSE . ";charset=utf8", $USER, $PASSWORD);
     }catch (PDOException $erro){
