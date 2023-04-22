@@ -2,27 +2,27 @@
 #include <WiFiClient.h>
 
 /* WiFi*/
-char ssid[] = "FTTH JAILTON"; // Nome da Rede WiFi
-char password[] = "afjo2811"; //Senha da Rede WiFi
+char ssid[] = "your_network_ssid"; 
+char password[] = "your_network_password";
 
-const char* host = "192.168.100.50";
+const char* host = "machine_ip"; //IP of the machine with the data storage system
 
-#define sensor A0 // sensor de umidade do solo
-const byte estadoRele = D8; // rele
-const byte ledG = D0; // Led verde 
-const byte ledY = D1; // Led amarelo
-const byte ledR = D2; // Led vermelho
-const byte ledB = D3; // Led azul
+#define sensor A0 // soil moisture sensor
+const byte relayState = D8; // relay
+const byte ledG = D0; // green led 
+const byte ledY = D1; // yellow led
+const byte ledR = D2; // red led
+const byte ledB = D3; // blue led
 
-int nivelUmidade;
+int moisture;
 
-unsigned long tempoAnterior = 0;
-unsigned long periodo = 3600000;
+unsigned long previousTime = 0;
+unsigned long period = 3600000;
 
-void setup() { /*Funçao de declaçao de variaveis*/
+void setup() { 
 
   pinMode(sensor, INPUT);
-  pinMode(estadoRele, OUTPUT);
+  pinMode(relayState, OUTPUT);
   pinMode(ledG, OUTPUT);
   pinMode(ledY, OUTPUT);
   pinMode(ledR, OUTPUT);
@@ -33,65 +33,64 @@ void setup() { /*Funçao de declaçao de variaveis*/
   
   conectaWiFi(ssid, password);
 
-  digitalWrite(estadoRele, HIGH);
+  digitalWrite(relayState, HIGH);
 
 }
 
-void loop() { /*Funçao onde fica as funcionalidades do sistema*/
+void loop() { 
 
-  nivelUmidade = analogRead(sensor);                    
-  nivelUmidade = map(nivelUmidade, 1024, 0, 0, 100); /*Convertendo de inteiro para porcentagem*/
+  moisture = analogRead(sensor);                    
+  moisture = map(moisture, 1024, 0, 0, 100); 
 
-  if (nivelUmidade <= 40) {  /*Se o nivel da umidade for menor/igual que 40%*/
+  if (moisture <= 40) {  
     digitalWrite(ledR, HIGH);
     digitalWrite(ledB, HIGH);
     digitalWrite(ledG, LOW);
     digitalWrite(ledY, LOW);
-    digitalWrite(estadoRele, LOW);
+    digitalWrite(relayState, LOW);
     delay(6000);
-    digitalWrite(estadoRele, HIGH);
+    digitalWrite(relayState, HIGH);
     digitalWrite(ledB, LOW);
     delay(3000);
   }
 
-  else if ((nivelUmidade >= 50) && (nivelUmidade < 60)){ /*Se o nivel da umidade for maior/igual que 50% e menor que 60%*/
-    digitalWrite(ledY, HIGH);
+  else if ((moisture >= 50) && (moisture < 60)){ 
     digitalWrite(ledR, LOW);
     digitalWrite(ledG, LOW);
     digitalWrite(ledB, LOW);
-    digitalWrite(estadoRele, HIGH);
+    digitalWrite(relayState, HIGH);
   }
 
-  else if((nivelUmidade >= 60) && (nivelUmidade < 80)) { /*Se o nivel da umidade for maior/igual que 60% e menor que 80%*/
+  else if((moisture >= 60) && (moisture < 80)) { 
     digitalWrite(ledG, HIGH);
     digitalWrite(ledR, LOW);
     digitalWrite(ledY, LOW);
     digitalWrite(ledB, LOW);
-    digitalWrite(estadoRele, HIGH);
+    digitalWrite(relayState, HIGH);
   }
 
-  else if(nivelUmidade >= 80){ /*Se o nivel da umidade for maior/igual que 80%*/
+  else if(moisture >= 80){ 
     digitalWrite(ledR, HIGH);
     digitalWrite(ledG, LOW);
     digitalWrite(ledY, LOW);
     digitalWrite(ledB, LOW);
-    digitalWrite(estadoRele, HIGH);
+    digitalWrite(relayState, HIGH);
     delay(200);
     digitalWrite(ledR, LOW);
     delay(200);
   }
 
-  enviarDados();
+  sendData();
   
 }
 
-void enviarDados() {
+void sendData() {
 
-  unsigned long tempoAtual = millis();
+  unsigned long currentTime = millis();
   
-  if(tempoAtual - tempoAnterior >= periodo){
+  if(currentTime - previousTime >= period){
     
-    tempoAnterior = tempoAtual;
+    previousTime = currentTime;
     /*----------------- Enviando os dados para a aplicaçao web -----------------*/
     Serial.print("connecting to ");
     Serial.println(host);
@@ -101,13 +100,13 @@ void enviarDados() {
   
     const int port = 80;
     if (!client.connect(host, port)) {
-      Serial.println("Conexao Falida");
+      Serial.println("connection fail");
       return;
     }
   
     String url = "/salvar.php?";
-      url += "nivelUmidade=";
-      url += nivelUmidade;
+      url += "moisture=";
+      url += moisture;
   
     Serial.print("Requesting URL: ");
     Serial.println(url);
@@ -138,7 +137,7 @@ void enviarDados() {
   
     // Close the connection
     Serial.println();
-    Serial.println("Conexao fechada");
+    Serial.println("completed connection");
     Serial.println();
     Serial.println();
     
@@ -150,7 +149,7 @@ void enviarDados() {
  
 void conectaWiFi(char SSID[], char PASSWORD[]){
 
-  Serial.print("Conectando a rede ");
+  Serial.print("connecting to network: ");
   Serial.println(SSID);
 
   WiFi.begin(SSID, PASSWORD);
@@ -161,8 +160,8 @@ void conectaWiFi(char SSID[], char PASSWORD[]){
   }
 
   Serial.println(" ");
-  Serial.println("WiFi Conectado");
-  Serial.println("Endereço de IP: ");
+  Serial.println("Connected!");
+  Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
   Serial.println("-------------------- x --------------------");
   Serial.println(" ");
